@@ -13,7 +13,7 @@ const displayCard = cards=>
         cardDiv.classList.add('row');
         cardDiv.innerHTML = `
        
-       <div class="row g-1 p-2 text-black">
+       <div class="row g-3 p-2 text-black  bg-success p-2 text-dark bg-opacity-10">
        <div class="col-md-4">
       <img src="${card.image_url}" class="img-fluid rounded-start" alt="...">
         </div>
@@ -38,7 +38,8 @@ const displayCard = cards=>
 
             </div>
             <div class="col">
-            <i class="fa-duotone fa-stars"></i>
+          
+            <button onclick="loadNewsDetails('${card._id}')" href ="#" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></button>
             
             </div>
           </div>
@@ -56,17 +57,12 @@ const displayCard = cards=>
         cardContainer.appendChild(cardDiv);
     })
 }
-loadCard();
-/*
- <h5 class ="card-writer">${card.author.name}</h5>
-               
-               
-          
-          
-          
-          <h6 class = "card-view">${card.total_view}</h6>
-          
-          <
-               <p class="card-text"><small class="text-muted">${card.author.published_date}</small></p>
+const loadNewsDetails= async news_id=>{
+   const url= `https://openapi.programming-hero.com/api/news/{news_id}`;
+   const res = await fetch(url);
+   const data = await res.json();
+   console.log(data);
+}
 
-*/
+loadCard();
+loadNewsCard();
