@@ -75,17 +75,3 @@ const displayNewsDetails = card =>{
 loadCard();
 loadNewsCard();
 
-           
-            
-
-            
-            
-          
-              
-               
-    
-        
-        
-        
-
-
